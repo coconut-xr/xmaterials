@@ -136,7 +136,9 @@ export function compileBorderMaterial(
     "#include <normal_fragment_maps>",
     `#include <normal_fragment_maps>
       vec4 directionWeights = normalize(max(vec4(0.0), v_outsideDistance - 0.5));
-      mat4 directions = mat4(vec4(-bitangent, 1.0), vec4(-tangent, 1.0), vec4(bitangent, 1.0), vec4(tangent, 1.0));
+      vec3 b = normalize(vBitangent);
+      vec3 t = normalize(vTangent);
+      mat4 directions = mat4(vec4(-b, 1.0), vec4(-t, 1.0), vec4(b, 1.0), vec4(t, 1.0));
       float outsideNormalWeight = max(0.0, -dist.y / (dist.x - dist.y)) * borderBend;
       vec3 outsideNormal = (directionWeights * transpose(directions)).xyz;
       normal = normalize(outsideNormalWeight * outsideNormal + (1.0 - outsideNormalWeight) * normal);

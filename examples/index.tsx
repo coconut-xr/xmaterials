@@ -39,8 +39,6 @@ for (let i = 0; i < array.length; i++) {
 }
 planeWithTangetGeometry.setAttribute("tangent", new BufferAttribute(array, 4));
 
-console.log(planeWithTangetGeometry);
-
 export default function Index() {
   return (
     <Canvas

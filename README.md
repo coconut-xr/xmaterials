@@ -1,9 +1,10 @@
 # @coconut-xr/xmaterials
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/coconut-xr/xmaterials/.github/workflows/deploy.yml)](https://github.com/coconut-xr/xmaterials/actions)&nbsp;
-[![Npm package version](https://badgen.net/npm/v/@coconut-xr/xmaterials)](https://npmjs.com/package/@coconut-xr/xmaterials)&nbsp;
-[![GitHub license](https://img.shields.io/github/license/coconut-xr/xmaterials.svg)](https://github.com/coconut-xr/xmaterials/blob/master/LICENSE)&nbsp;
-[![Twitter](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/coconut_xr)
+
+[![Version](https://img.shields.io/npm/v/@coconut-xr/xmaterials?style=flat-square)](https://npmjs.com/package/@coconut-xr/xmaterials)
+[![License](https://img.shields.io/github/license/coconut-xr/xmaterials.svg?style=flat-square)](https://github.com/coconut-xr/xmaterials/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/follow/coconut_xr?style=flat-square)](https://twitter.com/coconut_xr)
+[![Discord](https://img.shields.io/discord/1087727032240185424?style=flat-square&label=discord)](https://discord.gg/RbyaXJJaJM)
 
 `npm i @coconut-xr/xmaterials`
 

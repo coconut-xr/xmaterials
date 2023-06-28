@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import {
   InstanceOf,
-  makeMaterialCursor,
-  makeMaterialFade,
-  makeMaterialHighlight,
-  makeMaterialBorder,
+  makeBorderMaterial,
+  makeCursorMaterial,
+  makeFadeMaterial,
+  makeHighlightMaterial,
 } from "@coconut-xr/xmaterials";
 import {
   BufferAttribute,
@@ -18,10 +18,10 @@ import {
 } from "three";
 import { Environment, OrbitControls } from "@react-three/drei";
 
-const MeshFadeBasicMaterial = makeMaterialFade(MeshBasicMaterial);
-const MeshCursorBasicMaterial = makeMaterialCursor(MeshBasicMaterial);
-const MeshHighlightBorderPhysicalMaterial = makeMaterialHighlight(
-  makeMaterialBorder(MeshPhysicalMaterial),
+const MeshFadeBasicMaterial = makeFadeMaterial(MeshBasicMaterial, { color: "blue" });
+const MeshCursorBasicMaterial = makeCursorMaterial(MeshBasicMaterial);
+const MeshHighlightBorderPhysicalMaterial = makeHighlightMaterial(
+  makeBorderMaterial(MeshPhysicalMaterial),
 );
 
 extend({
@@ -75,7 +75,7 @@ function App() {
       </mesh>
       <mesh position={[0, 0, 0.5]} scale={[0.1, 0.1, 1]}>
         <boxGeometry />
-        <meshFadeBasicMaterial transparent color="blue" />
+        <meshFadeBasicMaterial transparent />
       </mesh>
       <mesh scale={4} position={[2.5, 0, 0]} geometry={planeWithTangetGeometry}>
         <meshHighlightBorderPhysicalMaterial

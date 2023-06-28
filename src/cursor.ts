@@ -1,8 +1,14 @@
 import { Material, Shader, WebGLRenderer } from "three";
-import { Constructor } from "./index.js";
+import { Constructor, FirstConstructorParameter } from "./index.js";
 
-export function makeCursorMaterial<T extends Constructor<Material>>(MaterialClass: T) {
+export function makeCursorMaterial<T extends Constructor<Material>>(
+  MaterialClass: T,
+  defaultProperties?: FirstConstructorParameter<T>,
+) {
   return class extends MaterialClass {
+    constructor(...args: Array<any>) {
+      super({ ...defaultProperties, ...args[0] }, ...args.slice(1));
+    }
     onBeforeCompile(shader: Shader, renderer: WebGLRenderer): void {
       super.onBeforeCompile(shader, renderer);
       compileCursorMaterial(shader);

@@ -1,7 +1,10 @@
 import { Material, Shader, Vector3, WebGLRenderer } from "three";
-import { Constructor } from "./index.js";
+import { Constructor, FirstConstructorParameter } from "./index.js";
 
-export function makeHighlightMaterial<T extends Constructor<Material>>(MaterialClass: T) {
+export function makeHighlightMaterial<T extends Constructor<Material>>(
+  MaterialClass: T,
+  defaultProperties?: FirstConstructorParameter<T>,
+) {
   return class extends MaterialClass {
     shader?: Shader;
 
@@ -53,6 +56,10 @@ export function makeHighlightMaterial<T extends Constructor<Material>>(MaterialC
       if (this.shader != null) {
         this.shader.uniforms.position2.value = value;
       }
+    }
+
+    constructor(...args: Array<any>) {
+      super({ ...defaultProperties, ...args[0] }, ...args.slice(1));
     }
 
     onBeforeCompile(shader: Shader, renderer: WebGLRenderer): void {

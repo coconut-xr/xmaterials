@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-misused-new */
 import { Material, Shader, Vector3, Vector4, WebGLRenderer } from "three";
-import { Constructor } from "./index.js";
+import { Constructor, FirstConstructorParameter } from "./index.js";
 
-export function makeBorderMaterial<T extends Constructor<Material>>(MaterialClass: T) {
+export function makeBorderMaterial<T extends Constructor<Material>>(
+  MaterialClass: T,
+  defaultProperties?: FirstConstructorParameter<T>,
+) {
   return class extends MaterialClass {
     shader?: Shader;
 
@@ -14,7 +17,7 @@ export function makeBorderMaterial<T extends Constructor<Material>>(MaterialClas
     public _borderBend = 0.5;
 
     constructor(...args: Array<any>) {
-      super(...args);
+      super({ ...defaultProperties, ...args[0] }, ...args.slice(1));
       if (this.defines == null) {
         this.defines = {};
       }

@@ -1,6 +1,6 @@
 {
   "name": "@coconut-xr/xmaterials",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "collection of materials for interactive immersive experiences",
   "keywords": [
     "three.js",

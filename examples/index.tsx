@@ -66,7 +66,7 @@ function App() {
     <>
       <OrbitControls />
       <Environment preset="city" background />
-      <pointLight intensity={10} color="white" position={[10, 10, 1]} />
+      <pointLight intensity={1} color="white" position={[10, 10, 10]} />
       <mesh position={[0, -2, 0]} scale={[1, 1, 1]}>
         <boxGeometry />
         <meshPhongMaterial color="blue" />
@@ -75,13 +75,42 @@ function App() {
         <boxGeometry />
         <meshFadeBasicMaterial transparent />
       </mesh>
+      <mesh scale={4} position={[0, 4, 0]} geometry={planeWithTangetGeometry}>
+        <meshHighlightBorderPhysicalMaterial
+          ref={materialRef}
+          transparent
+          toneMapped
+          borderColor={[1, 1, 1]}
+          borderSize={[0.02, 0.02, 0.02, 0.02]}
+          borderBend={0.3}
+          specular="white"
+          color={[1, 1, 1]}
+          borderOpacity={1}
+          transmission={0.9}
+          roughness={0.3}
+        />
+      </mesh>
+      <mesh scale={4} position={[-2.5, 0, 0]} geometry={planeWithTangetGeometry}>
+        <meshHighlightBorderPhysicalMaterial
+          ref={materialRef}
+          transparent
+          toneMapped
+          borderColor={[1, 1, 1]}
+          borderBend={0.3}
+          specular="white"
+          color={[1, 1, 1]}
+          borderOpacity={1}
+          transmission={0.9}
+          roughness={0.3}
+        />
+      </mesh>
       <mesh scale={4} position={[2.5, 0, 0]} geometry={planeWithTangetGeometry}>
         <meshHighlightBorderPhysicalMaterial
           ref={materialRef}
           transparent
           toneMapped
           borderRadius={[0.1, 0.1, 0.1, 0.1]}
-          borderSize={[0.02, 0.02, 0.02, 0.02]}
+          borderSize={[0.1, 0.1, 0.1, 0.1]}
           borderColor={[1, 1, 1]}
           borderBend={0.3}
           specular="white"
